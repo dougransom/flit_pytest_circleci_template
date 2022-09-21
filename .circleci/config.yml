@@ -13,34 +13,31 @@ orbs:
   # Orb commands and jobs help you with common scripting around a language/tool
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.5.0
+  python: circleci/python@2.0.3
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build: # This is the name of the job, feel free to change it to better match what you're trying to do!
-    docker:
-      - image: cimg/python:3.10.2
-    resource_class: small
- 
+#    docker:
+#      - image: cimg/python:3.10.2
+#    resource_class: small
+
+    executor: python/default
     steps:
       - checkout
-
 #      - python/install-packages:
 #          pkg-manager: pip
-
       - install-flit:  
           name: Add Flit for Build Step
           command:  |
             pip install --upgrade pip
             pip install flit
-
       - build-package:
           name: Build Package With Flit
           command: |
             flit build
-
-      - run-tests:
+      - run:
           #install the package we built and run the tests
           name: Run tests
           command: |
