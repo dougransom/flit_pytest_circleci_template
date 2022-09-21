@@ -45,7 +45,7 @@ jobs:
             #pip install dist/*.whl[test]    #there should only be one whl from the build step above
             pytest                          #pyproject.toml must give hints
 
-      - publish:
+      - run:
           name: Publish                       #use twine rather than flit to upload to pypi or testpypi
           command: |                          #you must set TWINE_USERNAME and TWINE_PASSWORD enviornment varialbes in circleci project settings. 
             pip install twine
