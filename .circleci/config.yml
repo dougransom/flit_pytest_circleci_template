@@ -42,8 +42,8 @@ jobs:
           #install the package we built and run the tests
           name: Run tests
           command: |
-            ls dist/*.whl
-            pip install dist/*.whl[test]    #there should only be one whl from the build step above
+            w=`ls dist/*.whl`
+            pip install ${w}[test]    #there should only be one whl from the build step above
             pytest                          #pyproject.toml must give hints
 
       - run:
