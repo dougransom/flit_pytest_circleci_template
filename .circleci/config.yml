@@ -29,12 +29,12 @@ jobs:
       - checkout
 #      - python/install-packages:
 #          pkg-manager: pip
-      - install-flit:  
+      - run:  
           name: Add Flit for Build Step
           command:  |
             pip install --upgrade pip
             pip install flit
-      - build-package:
+      - run:
           name: Build Package With Flit
           command: |
             flit build
