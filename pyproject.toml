@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "flit_pytest_circleci_template"
 authors = [{name = "Doug Ransom", email = "doug@ransom.vip"}]
-version="1.0"
+version="0.0"
 description="todo description"
 requires-python = ">2.7,>=3.9"
 classifiers=[
