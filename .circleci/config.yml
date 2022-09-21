@@ -19,43 +19,34 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build: # This is the name of the job, feel free to change it to better match what you're trying to do!
-    # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
-    # You can specify an image from Dockerhub or use one of the convenience images from CircleCI's Developer Hub
-    # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
-    # The executor is the environment in which the steps below will be executed - below will use a python 3.10.2 container
-    # Change the version below to your required version of python
-   # docker:
-   #   - image: cimg/python:3.10.2
-   # resource_class: small
-    # Checkout the code as the first step. This is a dedicated CircleCI step.
-    # The python orb's install-packages step will install the dependencies from a Pipfile via Pipenv by default.
-    # Here we're making sure we use just use the system-wide pip. By default it uses the project root's requirements.txt.
-    # Then run your tests!
-    # CircleCI will report the results back to your VCS provider.
+
     executor: python/default
 
     steps:
       - checkout
 
-      - run:  
+      - python/install-packages:
+          pkg-manager: pip
+
+      - install-flit:  
           name: Add Flit for Build Step
           command:  |
             pip install --upgrade pip
             pip install flit
 
-      - run:
+      - build-package:
           name: Build Package With Flit
           command: |
             flit build
 
-      - run:
+      - run-tests:
           #install the package we built and run the tests
           name: Run tests
           command: |
             #pip install dist/*.whl[test]    #there should only be one whl from the build step above
             pytest                          #pyproject.toml must give hints
 
-      - run:
+      - publish:
         name: Publish                       #use twine rather than flit to upload to pypi or testpypi
         command: |                          #you must set TWINE_USERNAME and TWINE_PASSWORD enviornment varialbes in circleci project settings. 
           pip install twine
