@@ -19,9 +19,10 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build: # This is the name of the job, feel free to change it to better match what you're trying to do!
-
-    executor: python/default
-
+    docker:
+      - image: cimg/python:3.10.2
+    resource_class: small
+ 
     steps:
       - checkout
 
