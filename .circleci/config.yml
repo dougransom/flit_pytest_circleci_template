@@ -26,8 +26,8 @@ jobs:
     steps:
       - checkout
 
-      - python/install-packages:
-          pkg-manager: pip
+#      - python/install-packages:
+#          pkg-manager: pip
 
       - install-flit:  
           name: Add Flit for Build Step
