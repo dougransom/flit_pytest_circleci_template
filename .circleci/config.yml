@@ -51,7 +51,7 @@ jobs:
           name: Publish                       #use twine rather than flit to upload to pypi or testpypi
           command: |                          #you must set TWINE_USERNAME and TWINE_PASSWORD enviornment varialbes in circleci project settings. 
             pip install twine
-            twine upload  --repository testpypi dist/*  
+            twine upload dist/*  
 
 
 
