@@ -39,7 +39,8 @@ jobs:
           command: |
             flit build
       - run:
-          #install the package we built and run the tests
+          #install the package we built and run the tests.
+          #this will also bring in the test dependencies from pyroject.toml.
           name: Run tests
           command: |
             w=`ls dist/*.whl`
