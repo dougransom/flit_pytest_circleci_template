@@ -4,6 +4,7 @@
 * [pytest](https://docs.pytest.org/) to test a python package, configured in pyproject.toml
 * [circleci](https://circleci.com/) for to build  the python package, test it, and publish to [pypi](https://pypi.org/) automatically.
 
+# Getting Ready
 To proceed with your own package and publishing to pypi:
 * copy the .circleci folder to your project and add to your git repo.  Currently it has only one file config.yml that configures the build pipeline for a python project.  Here is the [.circleci/config.yml](.circleci/config.yml)  and [pyproject.toml](./pyproject.toml) for this project.
 * Create the pyproject.toml as normally required to build your package with flit.  Include in test dependencies pytest and any other python packages that need to be installed for testing:
@@ -29,6 +30,17 @@ to update to the latest [python orb](https://circleci.com/developer/orbs?query=c
 
 The publish step will normally fail if there is already a package in  [pypi](https://pypi.org/) with the same version number.  Which is desired behavior.
 When you are ready to publish, increase the version number (in pyproject.toml or __init__.py depending on how the project is set up.).
+
+** You can elect to publish to [testpypi](https://test.pypi.org/) by tweaking the twine command in config.yml **
+
+#Configure [circleci](https://circleci.com/)
+
+Create a circlecli account if you don't have one and add your  github repository as a project. Get the build at least running.
+
+Using Project Settings, add Environment variables  ```TWINE_USERNAME``` and ```TWINE_PASSWORD```.  These are the credentials you use to publish to [pypi](https://pypi.org/) or [testpypi](https://test.pypi.org/).
+
+
+
 
 # License
 
