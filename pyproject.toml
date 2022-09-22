@@ -6,10 +6,9 @@ build-backend = "flit_core.buildapi"
 name = "flit_pytest_circleci_template"
 authors = [{name = "Doug Ransom", email = "doug@ransom.vip"}]
 version="0.0"
-description="todo description"
+description="flit_pytest_circleci_template is a sample project to show how to use flit, pytest, and circleci to automatically build, test and publish Python packages."
 requires-python = ">2.7,>=3.9"
 classifiers=[
-        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3.0",
         "Topic :: Software Development :: Libraries :: Python Modules"
