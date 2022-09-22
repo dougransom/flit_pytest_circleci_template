@@ -35,7 +35,7 @@ When you are ready to publish, increase the version number (in pyproject.toml or
 
 # Configure [circleci](https://circleci.com/)
 
-Create a circlecli account if you don't have one and add your  github repository as a project. Get the build at least running.
+Create a [circleci](https://circleci.com/) account if you don't have one and add your  github repository as a project. Get the build at least running.
 
 Using Project Settings, add Environment variables  ```TWINE_USERNAME``` and ```TWINE_PASSWORD```.  These are the credentials you use to publish to [pypi](https://pypi.org/) or [testpypi](https://test.pypi.org/).  Until you set those variables, the publish stop obviously will fail, but the package build and test steps should work.
 
