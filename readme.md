@@ -4,6 +4,8 @@
 * [pytest](https://docs.pytest.org/) to test a python package, configured in pyproject.toml
 * [circleci](https://circleci.com/) for to build  the python package, test it, and publish to [pypi](https://pypi.org/) automatically.
 
+If you prefer to use [github actions](https://github.com/features/actions), here is a sample using [flit in a github action](https://github.com/dictation-toolbox/natlinkcore/blob/11686711b996343489bc2eea7692c5c9101a5ec1/.github/workflows/python-publish.yml)  to build a package and publish to [testpypi](https://test.pypi.org/).  A later version of that file will no doubt publish to [pypi](https://pypi.org/) instead of [testpypi](https://test.pypi.org/).  
+
 # Getting Ready
 To proceed with your own package and publishing to pypi:
 * copy the .circleci folder to your project and add to your git repo.  Currently it has only one file config.yml that configures the build pipeline for a python project.  Here is the [.circleci/config.yml](.circleci/config.yml)  and [pyproject.toml](./pyproject.toml) for this project.
